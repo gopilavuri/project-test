@@ -3,7 +3,12 @@ pipeline{
        tools{
             maven 'maven 3.9.5'
              }
-         stages{
+       stages{
+        stage ('git checkout'){
+            steps{
+            git branch:'master', url:'https://github.com/gopilavuri/SimpleWebApp.git'
+                  }
+         }
              stage ('Build') {
              steps {
                 sh 'mvn clean package'
