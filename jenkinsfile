@@ -14,11 +14,11 @@ pipeline{
                 sh 'mvn clean package'
                     }
                   }
-             stage ('copy to s3 bucket'){
-                  steps{
-                 sh 'aws s3 cp /var/lib/jenkins/workspace/test-pipeline-webserver/server/target/server.jar s3://test-pipeline-webserver/'
-                        }
-                     }
+            // stage ('copy to s3 bucket'){
+                //  steps{
+                // sh 'aws s3 cp /var/lib/jenkins/workspace/test-pipeline-webserver/server/target/server.jar s3://test-pipeline-webserver/'
+                 //       }
+                //     }
                    }
                  }
 
