@@ -19,6 +19,13 @@ pipeline{
                 // sh 'aws s3 cp /var/lib/jenkins/workspace/test-pipeline-webserver/server/target/server.jar s3://test-pipeline-webserver/'
                  //       }
                 //     }
+                  stage ('deploy') {
+             steps {
+                sshagent(['deploye_user']) {
+    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/project-webserver/webapp/target/webapp.war ubuntu@13.210.60.57:/home/ubuntu/apache-tomcat-10.1.15/webapps'
+}
+                    }
+                  }
                    }
                  }
 
