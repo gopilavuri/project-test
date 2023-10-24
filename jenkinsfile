@@ -14,19 +14,19 @@ pipeline{
                 sh 'mvn clean package'
                     }
                   }
-            // stage ('copy to s3 bucket'){
-                //  steps{
-                // sh 'aws s3 cp /var/lib/jenkins/workspace/test-pipeline-webserver/server/target/server.jar s3://test-pipeline-webserver/'
-                 //       }
-                //     }
-                  stage ('deploy') {
-             steps {
-                sshagent(['deploye_user']) {
-sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.27.201.132 mkdir /home/ubuntu/new'
+             stage ('copy to s3 bucket'){
+                  steps{
+                 sh 'aws s3 cp /var/lib/jenkins/workspace/test-pipeline-webserver/server/target/server.jar s3://test-pipeline-webserver/'
+                        }
+                     }
+             //     stage ('deploy') {
+            // steps {
+        //        sshagent(['deploye_user']) {
+// sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.27.201.132 mkdir /home/ubuntu/new'
   //  sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war ubuntu@3.27.201.132:/home/ubuntu/apache-tomcat-10.1.15/webapps'
-}
-                    }
-                  }
+       //  }
+         //           }
+           //       }
                    }
                  }
 
