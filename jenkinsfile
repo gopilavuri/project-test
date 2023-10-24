@@ -16,6 +16,7 @@ pipeline{
                   }
              stage ('copy to s3 bucket'){
                   steps{
+                sh 'whoami'
                  sh 'aws s3 cp /var/lib/jenkins/workspace/test-pipeline-webserver/server/target/server.jar s3://test-pipeline-webserver/'
                         }
                      }
