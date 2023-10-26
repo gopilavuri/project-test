@@ -22,10 +22,11 @@ pipeline{
                      }
                   stage ('deploy') {
              steps {
-                sshagent(['deploye_user']) {
+deploy adapters: [tomcat10(credentialsId: 'deployer-login', path: '', url: 'http://13.211.158.218:8080/')], contextPath: null, war: '**/*.war'
+              //  sshagent(['deploye_user']) {
  // sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.27.192.95 mkdir /home/ubuntu/new'
-    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/project-webserver/webapp/target/webapp.war ubuntu@13.211.158.218:/home/ubuntu/apache-tomcat-10.1.15/webapps'
-        }
+   // sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/project-webserver/webapp/target/webapp.war ubuntu@13.211.158.218:/home/ubuntu/apache-tomcat-10.1.15/webapps'
+  //      }
                     }
                   }
                    }
