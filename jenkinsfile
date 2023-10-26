@@ -24,7 +24,7 @@ pipeline{
              steps {
                 sshagent(['deploye_user']) {
  // sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.27.192.95 mkdir /home/ubuntu/new'
-    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/project-webserver/webapp/target/webapp.war ubuntu@3.27.192.95:/home/ubuntu/apache-tomcat-10.1.15/webapps'
+    sh 'cp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/project-webserver/webapp/target/webapp.war ubuntu@13.211.158.218:/home/ubuntu/apache-tomcat-10.1.15/webapps'
         }
                     }
                   }
